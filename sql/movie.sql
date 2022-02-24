@@ -16,9 +16,9 @@ create table director (
 );
 
 create table movieDirector (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
     movieId BIGINT NOT NULL REFERENCES movie(id),
-    directorId BIGINT NOT NULL REFERENCES director(id),
-    UNIQUE(movieId) -- every film can have only one director
+    directorId BIGINT NOT NULL REFERENCES director(id)
 );
 
 create table genre (
@@ -28,6 +28,7 @@ create table genre (
 );
 
 create table movieGenre (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
     movieId BIGINT NOT NULL REFERENCES movie(id),
     genreId BIGINT NOT NULL REFERENCES genre(id)
 );
